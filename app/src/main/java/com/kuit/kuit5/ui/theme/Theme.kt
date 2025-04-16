@@ -8,6 +8,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
@@ -52,6 +53,29 @@ fun KUIT5Theme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        content = content
+    )
+}
+
+object BankSaladTheme {
+    val colors : BankSaladColors
+    @Composable
+    @ReadOnlyComposable // 전역에서 읽기만 가능
+    get() = LocalBankSaladColorsProvider.current
+
+    val typography: BankSaladTypography
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalBankSaladTypographyProvider.current
+}
+
+@Composable
+fun KUIT5_SolutionsTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    dynamicColor: Boolean = true,
+    content: @Composable () -> Unit
+) {
+    MaterialTheme(
         content = content
     )
 }

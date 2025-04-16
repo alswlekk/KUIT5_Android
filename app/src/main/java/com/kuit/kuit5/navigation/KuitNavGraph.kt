@@ -18,7 +18,7 @@ fun KuitNavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Route.Home.route,
+        startDestination = Route.Home.route, // 시작 화면
     ){
         // 홈
         composable(route = Route.Home.route) {
